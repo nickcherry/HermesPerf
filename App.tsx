@@ -49,7 +49,7 @@ const App: FC = () => {
           ? `${mean(renderDurationsRef.current).toPrecision(4)}ms`
           : avgDurationPlaceholder,
       );
-    });
+    }, 500);
 
     return () => clearInterval(interval);
   }, []);
@@ -59,7 +59,10 @@ const App: FC = () => {
       <ScrollView>
         <Button title="Rerender Pizzas" onPress={rerenderPizzas} />
         <Text style={styles.isUsingHermes}>
-          Using Hermes? {(global as any).HermesInternal ? 'YES' : 'NO'}
+          Using Hermes: {(global as any).HermesInternal ? 'YES' : 'NO'}
+        </Text>
+        <Text style={styles.totalNumPizzas}>
+          Num Pizzas: {(numColumns * numRows).toLocaleString()}
         </Text>
         <Text style={styles.avgRenderDuration}>
           Avg Pizza Render Duration: {avgRenderDuration}
@@ -107,19 +110,23 @@ const Pizza: FC<PizzaProps> = memo(({index, onRender, renderCount}) => {
 });
 
 const styles = StyleSheet.create({
-  row: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-  },
   isUsingHermes: {
     fontSize: 12,
     marginTop: 10,
     textAlign: 'center',
   },
+  totalNumPizzas: {
+    fontSize: 12,
+    textAlign: 'center',
+  },
   avgRenderDuration: {
     fontSize: 16,
     textAlign: 'center',
+  },
+  row: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
   pizzaContainer: {
     height: 50,
