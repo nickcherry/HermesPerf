@@ -1,5 +1,7 @@
 # Hermes v V8 Performance Benchmarks
 
+A toy app to compare the performance of Hermes and V8.
+
 ## :package: Installing Dependencies
 
 To install NPM dependencies, run `yarn install` from the project root.
@@ -8,7 +10,7 @@ To install NPM dependencies, run `yarn install` from the project root.
 
 To run the app, start the Metro server by running `yarn start`, then launch the Android app by running `yarn android`.
 
-## microscope: Benchmarking
+## :microscope: Benchmarking
 
 Tap the "Rerender Pizzas" button to re-render all the pizzas, then observe the average duration with Hermes vs V8.
 
